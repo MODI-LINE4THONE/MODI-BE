@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: MODI-BE
+
+  profiles:
+    active: dev
+
+server:
+  port: 8080
