@@ -18,6 +18,29 @@ jobs:
     permissions:
       contents: read
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: modi
+          MYSQL_USER: modi_app
+          MYSQL_PASSWORD: ci_test_password
+          MYSQL_ROOT_PASSWORD: ci_root_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -pci_root_password"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    env:
+      SPRING_PROFILES_ACTIVE: dev
+      DB_PASSWORD: ci_test_password
+      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/modi
+      SPRING_DATASOURCE_USERNAME: modi_app
+      SPRING_DATASOURCE_PASSWORD: ci_test_password
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
