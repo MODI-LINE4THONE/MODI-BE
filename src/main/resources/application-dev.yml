@@ -1,9 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/modi
+    url: jdbc:mysql://localhost:3310/modi
     username: root
     password: ${DB_PASSWORD}
-
   jpa:
     open-in-view: false
 
