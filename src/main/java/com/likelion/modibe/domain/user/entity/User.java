@@ -1,4 +1,3 @@
-
 package com.likelion.modibe.domain.user.entity;
 
 import jakarta.persistence.*;
