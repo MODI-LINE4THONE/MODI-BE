@@ -10,4 +10,6 @@ public interface KeyringRepository extends JpaRepository<Keyring, Long> {
 
     Optional<Keyring> findByRegistrationCode(String registrationCode);
 
+    List<Keyring> findByProfileId(Long profileId);
+
 }

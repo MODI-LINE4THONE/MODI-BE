@@ -1,5 +1,7 @@
 package com.likelion.modibe.domain.profile.service;
 
+import com.likelion.modibe.domain.keyring.dto.KeyringResponse;
+import com.likelion.modibe.domain.keyring.repository.KeyringRepository;
 import com.likelion.modibe.domain.profile.dto.ProfileCreateRequest;
 import com.likelion.modibe.domain.profile.dto.ProfileUpdateRequest;
 import com.likelion.modibe.domain.profile.entity.Profile;
@@ -24,6 +26,7 @@ public class ProfileService {
 
     private final ProfileRepository profileRepository;
     private final UserRepository userRepository;
+    private final KeyringRepository keyringRepository;
 
     // 접근성 프로필 생성
     @Transactional
@@ -166,5 +169,31 @@ public class ProfileService {
         }
 
         return ProfileResponse.from(profile);
+    }
+
+    @Transactional(readOnly = true)
+    public List<KeyringResponse> getProfileKeyrings(
+            Long userId,
+            Long profileId
+    ) {
+
+        // 1. 프로필 조회
+        Profile profile = profileRepository.findById(profileId)
+                .orElseThrow(() ->
+                        new CustomException(ProfileErrorCode.PROFILE_NOT_FOUND)
+                );
+
+        // 2. 본인 프로필인지 확인
+        if (!profile.getUser().getId().equals(userId)) {
+            throw new CustomException(
+                    ProfileErrorCode.PROFILE_ACCESS_DENIED
+            );
+        }
+
+        // 3. 프로필에 연결된 키링 조회
+        return keyringRepository.findByProfileId(profileId)
+                .stream()
+                .map(KeyringResponse::from)
+                .toList();
     }
 }

@@ -1,5 +1,6 @@
 package com.likelion.modibe.domain.profile.controller;
 
+import com.likelion.modibe.domain.keyring.dto.KeyringResponse;
 import com.likelion.modibe.domain.profile.dto.ProfileCreateRequest;
 import com.likelion.modibe.domain.profile.dto.ProfileResponse;
 import com.likelion.modibe.domain.profile.dto.ProfileUpdateRequest;
@@ -84,6 +85,24 @@ public class ProfileController {
 
         return ResponseEntity.ok(
                 ApiResponse.success("프로필 조회 성공", response)
+        );
+    }
+
+    // 프로필별 키링 조회
+    @GetMapping("/{profileId}/keyrings")
+    public ResponseEntity<ApiResponse<List<KeyringResponse>>> getProfileKeyrings(
+            @AuthenticationPrincipal Long userId,
+            @PathVariable Long profileId
+    ) {
+
+        List<KeyringResponse> responses =
+                profileService.getProfileKeyrings(userId, profileId);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "프로필별 키링 조회 성공",
+                        responses
+                )
         );
     }
 }
