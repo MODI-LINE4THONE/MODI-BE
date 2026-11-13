@@ -40,6 +40,7 @@ jobs:
       SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/modi
       SPRING_DATASOURCE_USERNAME: modi_app
       SPRING_DATASOURCE_PASSWORD: ci_test_password
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
     steps:
       - name: Checkout
