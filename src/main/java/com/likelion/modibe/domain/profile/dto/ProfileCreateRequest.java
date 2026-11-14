@@ -1,13 +1,9 @@
 package com.likelion.modibe.domain.profile.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public record ProfileCreateRequest(
-
-        @NotNull
-        Long keyringId,
 
         @NotBlank
         @Size(max = 50)
@@ -15,8 +11,8 @@ public record ProfileCreateRequest(
 
         boolean largeText,
         boolean highContrast,
-        boolean simplifiedMenu,
+        boolean touchGuide,
         boolean lowerScreen,
-        boolean touchGuide
+        boolean touchCorrection
 
 ) {}

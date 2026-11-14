@@ -65,4 +65,18 @@ public class Keyring {
 
         this.profile = profile;
     }
+
+    public void markAsLost() {
+
+        if (this.status != KeyringStatus.REGISTERED) {
+            throw new IllegalStateException("등록된 키링만 분실 처리할 수 있습니다.");
+        }
+
+        this.status = KeyringStatus.LOST;
+    }
+
+    // 키링과 프로필 연결 해제
+    public void disconnectProfile() {
+        this.profile = null;
+    }
 }
