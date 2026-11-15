@@ -1,9 +1,6 @@
 package com.likelion.modibe.domain.keyring.controller;
 
-import com.likelion.modibe.domain.keyring.dto.KeyringLostResponse;
-import com.likelion.modibe.domain.keyring.dto.KeyringRegisterRequest;
-import com.likelion.modibe.domain.keyring.dto.KeyringProfileConnectRequest;
-import com.likelion.modibe.domain.keyring.dto.KeyringProfileConnectResponse;
+import com.likelion.modibe.domain.keyring.dto.*;
 import com.likelion.modibe.domain.keyring.service.KeyringService;
 import com.likelion.modibe.global.common.ApiResponse;
 
@@ -28,18 +25,18 @@ public class KeyringController {
 
     // 키링 등록
     @PostMapping("/registrations")
-    public ResponseEntity<ApiResponse<Map<String, Long>>> register(
+    public ResponseEntity<ApiResponse<KeyringResponse>> register(
             @AuthenticationPrincipal Long userId,
             @Valid @RequestBody KeyringRegisterRequest request
     ) {
-        Long keyringId =
+         KeyringResponse response =
                 keyringService.registerKeyring(userId, request);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(ApiResponse.success(
                         "키링 등록 성공",
-                        Map.of("keyringId", keyringId)
+                        response
                 ));
     }
 

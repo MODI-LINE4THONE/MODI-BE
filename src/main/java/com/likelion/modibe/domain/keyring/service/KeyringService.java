@@ -17,6 +17,7 @@ import com.likelion.modibe.domain.keyring.dto.KeyringProfileConnectResponse;
 import com.likelion.modibe.domain.profile.entity.Profile;
 import com.likelion.modibe.domain.profile.exception.ProfileErrorCode;
 import com.likelion.modibe.domain.profile.repository.ProfileRepository;
+import com.likelion.modibe.domain.keyring.dto.KeyringResponse;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +29,7 @@ public class KeyringService {
 
     // 키링 등록
     @Transactional
-    public Long registerKeyring(
+    public KeyringResponse registerKeyring(
             Long userId,
             KeyringRegisterRequest request
     ) {
@@ -53,7 +54,7 @@ public class KeyringService {
 
         keyring.register(user);
 
-        return keyring.getId();
+        return KeyringResponse.from(keyring);
     }
 
     @Transactional

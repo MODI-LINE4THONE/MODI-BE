@@ -80,6 +80,13 @@ public class ProfileService {
         // 6. 프로필 저장
         Profile savedProfile = profileRepository.save(profile);
 
+        // 7. 최초 프로필 생성 시 온보딩 완료
+        if (!user.isOnboardingCompleted()
+                && user.getUserType() != null) {
+
+            user.completeOnboarding();
+        }
+
         return savedProfile.getId();
     }
 

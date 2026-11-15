@@ -4,6 +4,7 @@ import com.likelion.modibe.domain.profile.entity.Profile;
 import com.likelion.modibe.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -44,6 +45,9 @@ public class Keyring {
     @JoinColumn(name = "profile_id")
     private Profile profile;
 
+    @Column(name = "registered_at")
+    private LocalDateTime registeredAt;
+
     public void register(User user) {
         if (this.status != KeyringStatus.AVAILABLE) {
             throw new IllegalStateException("이미 등록된 키링입니다.");
@@ -51,6 +55,7 @@ public class Keyring {
 
         this.user = user;
         this.status = KeyringStatus.REGISTERED;
+        this.registeredAt = LocalDateTime.now();
     }
 
     public void connectProfile(Profile profile) {
