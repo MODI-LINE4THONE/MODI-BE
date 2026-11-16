@@ -12,4 +12,8 @@ public interface KeyringRepository extends JpaRepository<Keyring, Long> {
 
     List<Keyring> findByProfileId(Long profileId);
 
+    Optional<Keyring> findByUid(String uid);
+
+
+
 }

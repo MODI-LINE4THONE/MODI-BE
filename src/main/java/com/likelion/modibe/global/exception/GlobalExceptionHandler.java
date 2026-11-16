@@ -39,6 +39,26 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.<Void>error(message));
     }
 
+    // 잘못된 요청값 처리
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ApiResponse<Void>> handleIllegalArgumentException(
+            IllegalArgumentException e) {
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.<Void>error(e.getMessage()));
+    }
+
+    // 잘못된 상태 처리
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<ApiResponse<Void>> handleIllegalStateException(
+            IllegalStateException e) {
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(ApiResponse.<Void>error(e.getMessage()));
+    }
+
     // 예상하지 못한 서버 오류 처리
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleException(
