@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ApiResponse.<Void>error(
-                        ErrorCode.INTERNAL_SERVER_ERROR.getMessage()
+                        CommonErrorCode.INTERNAL_SERVER_ERROR.getMessage()
                 ));
     }
 }
