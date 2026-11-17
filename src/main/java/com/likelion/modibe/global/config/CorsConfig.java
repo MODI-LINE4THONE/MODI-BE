@@ -18,6 +18,7 @@ public class CorsConfig {
         // 허용할 프론트엔드 주소(여기에 추가해주세요!! 일단 임의로 프론트 주소 넣어놨어여)
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
+                "http://localhost:5174",
                 "https://modi-web-roan.vercel.app"
         ));
 

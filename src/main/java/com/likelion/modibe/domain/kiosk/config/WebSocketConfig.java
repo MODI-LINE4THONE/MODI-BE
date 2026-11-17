@@ -28,6 +28,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/ws/kiosk")
                 .setAllowedOriginPatterns(
                         "http://localhost:5173",
+                        "http://localhost:5174",
                         "https://modi-web.vercel.app",
                         "https://modi-web-roan.vercel.app"
                 );
