@@ -1,12 +1,17 @@
 <p align="center">
   <img src="./images/modi_main.jpeg" width="100%" alt="MODI 서비스 소개" />
 </p>
+<div align="center">
 
-🟦 MODI
+MODI
 
 모두에게 맞춰지는, 나만의 키오스크
 
-NFC 키링을 활용해 사용자별 접근성 설정을 실시간으로 적용하는 개인 맞춤형 키오스크 서비스
+NFC 키링 하나로 나에게 맞는 키오스크 환경을 만드는 접근성 개인화 서비스
+
+</div>
+
+⸻
 
 🚀 Deployment
 
@@ -106,6 +111,21 @@ WebSocket 구독 경로
 
 /topic/kiosks/{kioskCode}
 
+접근성 설정 메시지 예시
+
+{
+  "type": "ACCESSIBILITY_APPLY",
+  "kioskCode": "KIOSK-001",
+  "profileId": 1,
+  "settings": {
+    "largeText": true,
+    "highContrast": true,
+    "touchGuide": false,
+    "lowerScreen": false,
+    "touchCorrection": false
+  }
+}
+
 05. NFC 키링 분실 및 재발급 관리
 
 키링을 분실한 경우 기존 키링을 사용할 수 없도록 처리하고 재발급을 요청할 수 있습니다.
@@ -141,46 +161,26 @@ DELIVERED
 
 🏗 시스템 아키텍처
 
-                 ┌─────────────────────┐
-                 │      사용자 웹       │
-                 │       React         │
-                 └──────────┬──────────┘
-                            │ REST API
-                            ▼
-                 ┌─────────────────────┐
-                 │    Spring Boot      │
-                 │      Backend        │
-                 └──────────┬──────────┘
-                            │
-                            ▼
-                 ┌─────────────────────┐
-                 │       MySQL         │
-                 │   사용자/프로필/키링  │
-                 └─────────────────────┘
-     NFC 키링
-        │
-        ▼
-┌─────────────────────┐
-│      키오스크        │
-│     React Kiosk     │
-└──────────┬──────────┘
-           │ NFC UID + kioskCode
-           ▼
-┌─────────────────────┐
-│    Spring Boot      │
-│      NFC API        │
-└──────────┬──────────┘
-           │ 프로필 조회
-           ▼
-┌─────────────────────┐
-│  WebSocket (STOMP)  │
-└──────────┬──────────┘
-           │ 접근성 설정 전달
-           ▼
-┌─────────────────────┐
-│     키오스크 UI      │
-│   접근성 설정 적용   │
-└─────────────────────┘
+flowchart TB
+    USER["👤 사용자"]
+    WEB["📱 MODI Web<br/>React"]
+    NFC["🔑 NFC 키링"]
+    KIOSK["🖥️ 키오스크<br/>React"]
+    API["⚙️ Spring Boot<br/>REST API"]
+    DB[("🗄️ MySQL")]
+    WS["🔄 WebSocket<br/>STOMP"]
+    USER --> WEB
+    USER --> NFC
+    WEB -->|"프로필 및 키링 관리"| API
+    NFC -->|"태그"| KIOSK
+    KIOSK -->|"UID + kioskCode"| API
+    API <-->|"데이터 조회 및 저장"| DB
+    API -->|"접근성 설정 전달"| WS
+    WS -->|"실시간 UI 개인화"| KIOSK
+    style API fill:#E8F0FE,stroke:#4B74E6,color:#222
+    style DB fill:#E8F5E9,stroke:#4CAF50,color:#222
+    style WS fill:#FFF3E0,stroke:#FF9800,color:#222
+    style KIOSK fill:#E8F0FE,stroke:#4B74E6,color:#222
 
 ⸻
 
@@ -200,30 +200,30 @@ Collaboration	GitHub
 
 📂 Backend 프로젝트 구조
 
-MODI-BE
- ├── src
- │   └── main
- │       ├── java
- │       │   └── com.likelion
- │       │       ├── domain
- │       │       │   ├── auth
- │       │       │   ├── user
- │       │       │   ├── profile
- │       │       │   ├── keyring
- │       │       │   └── kiosk
- │       │       └── global
- │       │           ├── config
- │       │           ├── security
- │       │           ├── common
- │       │           └── exception
- │       └── resources
- │           ├── application.yml
- │           ├── application-dev.yml
- │           └── application-prod.yml
- ├── Dockerfile
- ├── .github
- │   └── workflows
- └── build.gradle
+MODI-BE/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/likelion/
+│       │       ├── domain/
+│       │       │   ├── auth/
+│       │       │   ├── user/
+│       │       │   ├── profile/
+│       │       │   ├── keyring/
+│       │       │   └── kiosk/
+│       │       └── global/
+│       │           ├── config/
+│       │           ├── security/
+│       │           ├── common/
+│       │           └── exception/
+│       └── resources/
+│           ├── application.yml
+│           ├── application-dev.yml
+│           └── application-prod.yml
+├── Dockerfile
+├── .github/
+│   └── workflows/
+└── build.gradle
 
 ⸻
 
