@@ -131,7 +131,6 @@ MODI-BE/
 ## 📂 Repository
 
 ### ⚙️ Backend
-> 사용자 인증, 접근성 프로필 및 NFC 키링 관리, WebSocket 통신과 서버 기능을 담당합니다.  
 > [**Backend Repository →**](https://github.com/MODI-LINE4THONE/MODI-BE)
 
 ---
