@@ -131,7 +131,7 @@ MODI-BE/
 ## 📂 Repository
 
 ### ⚙️ Backend
-> [**Backend Repository →**](https://github.com/MODI-LINE4THONE/MODI-BE)
+> [**Backend Repository**](https://github.com/MODI-LINE4THONE/MODI-BE)
 
 ---
 
