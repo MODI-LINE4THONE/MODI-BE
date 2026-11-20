@@ -1,72 +1,45 @@
 <p align="center">
-  <img src="./images/modi_main.jpeg" width="100%" alt="MODI 서비스 소개" />
+  <img src="./images/modi_main.jpeg" width="100%" alt="MODI 서비스 메인 이미지" />
 </p>
-<div align="center">
 
-MODI
+# 🔵 MODI
 
-모두에게 맞춰지는, 나만의 키오스크
+> **NFC 키링을 태그하면 나에게 맞는 화면으로 바뀌는 개인 맞춤형 키오스크 접근성 서비스입니다.**
 
-NFC 키링 하나로 나에게 맞는 키오스크 환경을 만드는 접근성 개인화 서비스
+## 🚀 Deployment
 
-</div>
+> 🌐 **MODI 서비스를 직접 만나보세요!**  
+> [**MODI 바로가기 →**](https://modi-web-roan.vercel.app/onboarding/login)
 
-⸻
+## 💡 서비스 소개
 
-🚀 Deployment
+**MODI**는 획일적인 키오스크 화면으로 불편함을 겪는 **고령자, 저시력자, 디지털 기기 이용이 익숙하지 않은 사용자** 등을 위한 **개인 맞춤형 키오스크 접근성 서비스**입니다.
 
-🌐 MODI 서비스를 직접 만나보세요!
+사용자는 웹에서 **큰 글씨, 고대비, 터치 가이드, 화면 위치 조정, 터치 보정** 등의 접근성 설정을 프로필로 저장하고 NFC 키링과 연결할 수 있습니다. 키오스크에서 키링을 태그하면 서버가 연결된 프로필을 조회하고, **WebSocket으로 해당 키오스크에 설정을 실시간 전달**합니다.
 
-MODI 서비스 바로가기 →
+매번 키오스크에서 복잡한 설정을 반복하지 않아도, 자신에게 편한 환경으로 서비스를 이용할 수 있도록 돕습니다.
 
-⸻
+> **키오스크에 사용자를 맞추는 것이 아니라, 키오스크가 사용자에게 맞춰지도록!**
 
-💡 서비스 소개
+## ✨ 주요 기능
 
-**MODI(Modify)**는 기존 키오스크의 획일적인 사용자 인터페이스로 인해 불편함을 겪는 사람들을 위한 개인 맞춤형 키오스크 접근성 서비스입니다.
+### 01. 사용자별 접근성 프로필 관리
+사용자는 자신의 필요에 맞게 **접근성 프로필을 생성·수정·조회**할 수 있습니다. 하나의 계정에서 여러 프로필을 관리하고 프로필마다 다른 설정을 저장할 수 있습니다.
 
-고령자, 저시력자, 디지털 기기 사용에 익숙하지 않은 사용자 등은 키오스크를 이용할 때 서로 다른 이용 환경을 필요로 합니다.
+- **큰 글씨** — 글자 크기 확대
+- **고대비** — 화면 대비 강화
+- **터치 가이드** — 조작 과정 안내
+- **화면 위치 조정** — 주요 조작 영역을 아래쪽으로 배치
+- **터치 보정** — 터치 입력 편의성 개선
 
-MODI는 사용자가 자신의 접근성 설정을 미리 등록하고, NFC 키링을 키오스크에 태그하는 것만으로 개인에게 적합한 UI를 자동으로 제공합니다.
-
-복잡한 설정 과정을 반복하지 않고도 큰 글씨, 고대비 화면, 터치 가이드, 화면 위치 조정, 터치 보정 등의 기능을 이용할 수 있도록 설계했습니다.
-
-키오스크에 사용자를 맞추는 것이 아니라, 키오스크가 사용자에게 맞춰지도록!
-
-MODI는 누구나 쉽고 편리하게 키오스크를 이용할 수 있는 환경을 목표로 합니다.
-
-⸻
-
-✨ 주요 기능
-
-01. 사용자별 접근성 프로필 관리
-
-사용자는 자신의 이용 환경에 맞는 접근성 설정을 프로필로 저장할 수 있습니다.
-
-하나의 계정에서 여러 프로필을 생성하고 관리할 수 있으며, 각 프로필마다 서로 다른 접근성 설정을 적용할 수 있습니다.
-
-지원하는 접근성 설정
-
-기능	설명
-큰 글씨 모드	글자 크기를 확대하여 가독성 향상
-고대비 모드	화면의 색상 대비를 높여 정보 식별 지원
-터치 가이드	키오스크 조작 과정 안내
-화면 위치 조정	주요 조작 영역을 아래쪽으로 배치
-터치 보정	터치 입력의 편의성 개선
-
-<!--
+<!-- 실제 이미지 업로드 후 주석을 해제하세요.
 <p align="left">
   <img src="./images/profile.png" width="32%" />
 </p>
 -->
 
-02. NFC 키링 등록 및 프로필 연동
-
-사용자는 발급받은 NFC 키링을 자신의 계정에 등록하고 원하는 접근성 프로필과 연결할 수 있습니다.
-
-키링의 고유 UID와 등록 코드를 이용해 등록 과정을 진행하며, 키링별 연결 프로필을 관리할 수 있습니다.
-
-이를 통해 별도의 로그인 과정 없이 키링 태그만으로 접근성 설정을 불러올 수 있습니다.
+### 02. NFC 키링 등록 및 프로필 연동
+발급된 NFC 키링의 **등록 코드**를 이용해 키링을 계정에 등록하고, 원하는 접근성 프로필에 연결할 수 있습니다. 등록된 키링은 고유 UID를 통해 식별됩니다.
 
 <!--
 <p align="left">
@@ -74,81 +47,25 @@ MODI는 누구나 쉽고 편리하게 키오스크를 이용할 수 있는 환�
 </p>
 -->
 
-03. NFC 기반 키오스크 자동 개인화
+### 03. NFC 기반 키오스크 자동 개인화
+사용자가 키오스크에 NFC 키링을 태그하면 **키링 UID와 키오스크 코드**가 서버로 전달됩니다. 서버는 연결된 프로필을 조회한 뒤 해당 키오스크에 접근성 설정을 전송합니다.
 
-사용자가 키오스크에 NFC 키링을 태그하면 서버에서 키링과 연결된 접근성 프로필을 조회합니다.
+**NFC 태그 → 키링·프로필 조회 → WebSocket 전송 → 키오스크 UI 적용**
 
-조회된 설정은 해당 키오스크로 전달되며, 사용자에게 적합한 UI 환경을 적용합니다.
-
-동작 과정
-
-NFC 키링 태그
-      ↓
-키오스크에서 UID 인식
-      ↓
-Spring Boot 서버로 UID 및 kioskCode 전달
-      ↓
-등록된 키링 및 접근성 프로필 조회
-      ↓
-WebSocket으로 설정 실시간 전달
-      ↓
-키오스크 UI 개인화 적용
 <!--
 <p align="left">
   <img src="./images/nfc_demo.png" width="70%" />
 </p>
 -->
 
-04. WebSocket 기반 실시간 접근성 설정 적용
+### 04. WebSocket 기반 실시간 설정 적용
+**Spring Boot와 WebSocket(STOMP)**을 사용해 접근성 설정을 실시간으로 전달합니다. 키오스크마다 고유한 `kioskCode`를 사용하여 각 키오스크의 구독 채널을 구분합니다.
 
-Spring Boot와 **WebSocket(STOMP)**을 활용하여 접근성 설정을 실시간으로 전달합니다.
+### 05. NFC 키링 분실 및 재발급 관리
+키링 분실 시 기존 키링을 비활성화하고 재발급을 요청할 수 있습니다. 시연 환경에서는 **요청 → 배송 중 → 배송 완료** 상태를 관리하며, 실제 택배사 배송 시스템과는 연동하지 않습니다.
 
-각 키오스크는 고유한 kioskCode를 사용하며, 서버는 해당 키오스크의 전용 채널로 설정을 전달합니다.
-
-이를 통해 여러 키오스크가 연결된 환경에서도 설정을 구분하여 전달할 수 있습니다.
-
-WebSocket 구독 경로
-
-/topic/kiosks/{kioskCode}
-
-접근성 설정 메시지 예시
-
-{
-  "type": "ACCESSIBILITY_APPLY",
-  "kioskCode": "KIOSK-001",
-  "profileId": 1,
-  "settings": {
-    "largeText": true,
-    "highContrast": true,
-    "touchGuide": false,
-    "lowerScreen": false,
-    "touchCorrection": false
-  }
-}
-
-05. NFC 키링 분실 및 재발급 관리
-
-키링을 분실한 경우 기존 키링을 사용할 수 없도록 처리하고 재발급을 요청할 수 있습니다.
-
-재발급 요청 과정에서 배송 정보를 입력하고, 발급 진행 상태를 확인할 수 있도록 구성했습니다.
-
-재발급 상태 관리
-
-재발급 요청
-     ↓
-REQUESTED
-     ↓
-SHIPPING
-     ↓
-DELIVERED
-
-※ 배송 상태는 시연을 위한 관리 기능이며, 실제 택배사 시스템과 연동된 것은 아닙니다.
-
-06. 키오스크 주문 시연
-
-실제 카페 키오스크 이용 상황을 가정한 React 기반 주문 화면을 통해 접근성 설정이 적용되는 과정을 시연합니다.
-
-사용자는 NFC 태그 전후의 UI 변화를 확인하고, 개인화된 화면에서 메뉴 선택과 장바구니 기능을 이용할 수 있습니다.
+### 06. 키오스크 주문 시연
+카페 주문 상황을 가정한 **React 기반 키오스크 화면**에서 NFC 태그 전후의 접근성 UI 변화를 시연합니다. 사용자는 개인화된 화면에서 메뉴 선택 및 장바구니 흐름을 확인할 수 있습니다.
 
 <!--
 <p align="left">
@@ -157,100 +74,30 @@ DELIVERED
 </p>
 -->
 
-⸻
+## 🛠 기술 스택
 
-🏗 시스템 아키텍처
+| 구분 | 기술 |
+| --- | --- |
+| **Backend** | Java 17, Spring Boot, Spring Security, Spring Data JPA |
+| **Database** | MySQL |
+| **Real-time Communication** | WebSocket, STOMP |
+| **Authentication** | JWT |
+| **Cloud & Infrastructure** | AWS EC2, Docker |
+| **CI/CD** | GitHub Actions |
+| **API Documentation** | Swagger UI, springdoc-openapi |
+| **Collaboration** | GitHub |
 
-flowchart TB
-    USER["👤 사용자"]
-    WEB["📱 MODI Web<br/>React"]
-    NFC["🔑 NFC 키링"]
-    KIOSK["🖥️ 키오스크<br/>React"]
-    API["⚙️ Spring Boot<br/>REST API"]
-    DB[("🗄️ MySQL")]
-    WS["🔄 WebSocket<br/>STOMP"]
-    USER --> WEB
-    USER --> NFC
-    WEB -->|"프로필 및 키링 관리"| API
-    NFC -->|"태그"| KIOSK
-    KIOSK -->|"UID + kioskCode"| API
-    API <-->|"데이터 조회 및 저장"| DB
-    API -->|"접근성 설정 전달"| WS
-    WS -->|"실시간 UI 개인화"| KIOSK
-    style API fill:#E8F0FE,stroke:#4B74E6,color:#222
-    style DB fill:#E8F5E9,stroke:#4CAF50,color:#222
-    style WS fill:#FFF3E0,stroke:#FF9800,color:#222
-    style KIOSK fill:#E8F0FE,stroke:#4B74E6,color:#222
+## 👥 팀원
 
-⸻
+![BE](https://img.shields.io/badge/BE-남궁강-3B68ED) &nbsp;
+![BE](https://img.shields.io/badge/BE-진가연-3B68ED)
 
-🛠 기술 스택
+## 📂 Repository
 
-구분	기술
-Backend	Java 17, Spring Boot, Spring Security, Spring Data JPA
-Database	MySQL
-Real-time Communication	WebSocket, STOMP
-Authentication	JWT
-Cloud & Infrastructure	AWS EC2, Docker
-CI/CD	GitHub Actions
-API Documentation	Swagger UI
-Collaboration	GitHub
+### ⚙️ Backend
+> 사용자 인증, 접근성 프로필 및 NFC 키링 관리, WebSocket 통신과 서버 기능을 담당합니다.  
+> [**Backend Repository →**](https://github.com/MODI-LINE4THONE/MODI-BE)
 
-⸻
+---
 
-📂 Backend 프로젝트 구조
-
-MODI-BE/
-├── src/
-│   └── main/
-│       ├── java/
-│       │   └── com/likelion/
-│       │       ├── domain/
-│       │       │   ├── auth/
-│       │       │   ├── user/
-│       │       │   ├── profile/
-│       │       │   ├── keyring/
-│       │       │   └── kiosk/
-│       │       └── global/
-│       │           ├── config/
-│       │           ├── security/
-│       │           ├── common/
-│       │           └── exception/
-│       └── resources/
-│           ├── application.yml
-│           ├── application-dev.yml
-│           └── application-prod.yml
-├── Dockerfile
-├── .github/
-│   └── workflows/
-└── build.gradle
-
-⸻
-
-👥 팀원
-
-🦁 4호선톤 MODI 팀
-
-이름	역할
-진가연	역할 추가 예정
-남궁강	Backend
-
-⸻
-
-📂 Repository
-
-⚙️ Backend
-
-MODI의 사용자 인증, 접근성 프로필 관리, NFC 키링 연동, WebSocket 통신 및 서버 기능을 담당합니다.
-
-Backend Repository →
-
-⸻
-
-<div align="center">
-
-🦁 4호선톤 | MODI
-
-모두에게 같은 화면이 아닌, 모두에게 맞는 화면.
-
-</div>
+### 🦁 4호선톤 5팀 | MODI
