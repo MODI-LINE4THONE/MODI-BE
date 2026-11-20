@@ -100,24 +100,6 @@ Spring Boot와 WebSocket(STOMP)을 활용하여 접근성 설정을 실시간으
 
 이를 통해 여러 키오스크가 연결된 환경에서도 설정을 구분하여 전달할 수 있습니다.
 
-WebSocket 구독 경로
-
-/topic/kiosks/{kioskCode}
-
-접근성 적용 메시지 예시
-
-{
-  "type": "ACCESSIBILITY_APPLY",
-  "kioskCode": "KIOSK-001",
-  "profileId": 1,
-  "settings": {
-    "largeText": true,
-    "highContrast": true,
-    "touchGuide": false,
-    "lowerScreen": false,
-    "touchCorrection": false
-  }
-}
 
 05. NFC 키링 분실 및 재발급 관리
 
