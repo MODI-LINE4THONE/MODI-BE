@@ -59,7 +59,7 @@ Spring Boot와 WebSocket(STOMP)을 사용해 접근성 설정을 실시간으로
 키링 분실 시 기존 키링을 비활성화하고 재발급을 요청할 수 있습니다. 시연 환경에서는 **요청 → 배송 중 → 배송 완료** 상태를 관리하며, 실제 택배사 배송 시스템과는 연동하지 않습니다.
 
 <p align="left">
-  <img width="70%" height="2160" alt="image" src="https://github.com/user-attachments/assets/61fdb1d3-bc31-4a16-b95b-b59932282d62"" alt="키링 재발급 화면" />
+  <img width="70%" alt="카랑 재발급 화면" src="https://github.com/user-attachments/assets/e6ea96b8-4a45-4eb7-b4e2-e868dc2895d6" />
 
 </p>
 
