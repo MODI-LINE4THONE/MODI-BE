@@ -9,7 +9,7 @@
 ## 🚀 Deployment
 
 > 🌐 **MODI 서비스를 직접 만나보세요!**  
-> [**MODI 바로가기 →**](https://modi-web-roan.vercel.app/)
+> [**MODI 바로가기 →**](https://modi-web-roan.vercel.app/onboarding/login)
 
 ## 💡 서비스 소개
 
@@ -33,15 +33,14 @@
 - **터치 보정** — 터치 입력 편의성 개선
 
 <p align="left">
-  <img src="./profile.png" width="70%" />
+  <img src="./profile.png" width="70%" alt="접근성 프로필 화면" />
 </p>
-
 
 ### 02. NFC 키링 등록 및 프로필 연동
 발급된 NFC 키링의 **등록 코드**를 이용해 키링을 계정에 등록하고, 원하는 접근성 프로필에 연결할 수 있습니다. 등록된 키링은 고유 UID를 통해 식별됩니다.
 
 <p align="left">
-  <img src="./keyring.png" width="70%" />
+  <img src="./keyring.png" width="70%" alt="NFC 키링 등록 화면" />
 </p>
 
 ### 03. NFC 기반 키오스크 자동 개인화
@@ -50,7 +49,7 @@
 **NFC 태그 → 키링·프로필 조회 → WebSocket 전송 → 키오스크 UI 적용**
 
 <p align="left">
-  <img src="./nfc_demo.png" width="70%" />
+  <img src="./nfc_demo.png" width="70%" alt="NFC 키오스크 시연" />
 </p>
 
 ### 04. WebSocket 기반 실시간 설정 적용
@@ -60,18 +59,15 @@
 키링 분실 시 기존 키링을 비활성화하고 재발급을 요청할 수 있습니다. 시연 환경에서는 **요청 → 배송 중 → 배송 완료** 상태를 관리하며, 실제 택배사 배송 시스템과는 연동하지 않습니다.
 
 <p align="left">
-  <img src="./1.png" width="70%" />
+  <img src="./1.png" width="70%" alt="키링 재발급 화면" />
 </p>
-
 
 ### 06. 키오스크 주문 시연
 카페 주문 상황을 가정한 **React 기반 키오스크 화면**에서 NFC 태그 전후의 접근성 UI 변화를 시연합니다. 사용자는 개인화된 화면에서 메뉴 선택 및 장바구니 흐름을 확인할 수 있습니다.
 
 <p align="left">
-  <img src="./2.png" width="70%" />
+  <img src="./2.png" width="70%" alt="키오스크 주문 시연" />
 </p>
-
-
 
 ## 🛠 기술 스택
 
@@ -85,6 +81,47 @@
 | **CI/CD** | GitHub Actions |
 | **API Documentation** | Swagger UI, springdoc-openapi |
 | **Collaboration** | GitHub |
+
+## 📂 Backend 프로젝트 구조
+
+기능별 도메인과 공통 설정을 분리하여 인증, 프로필, NFC 키링 및 키오스크 기능을 관리합니다.
+
+```text
+MODI-BE/
+├── .github/
+│   └── workflows/                 # CI/CD 워크플로
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/likelion/
+│       │       ├── domain/
+│       │       │   ├── auth/       # 인증 및 로그인
+│       │       │   ├── user/       # 사용자 관리
+│       │       │   ├── profile/    # 접근성 프로필
+│       │       │   ├── keyring/    # NFC 키링 및 재발급
+│       │       │   └── kiosk/      # NFC 인식 및 키오스크
+│       │       └── global/
+│       │           ├── config/     # 공통 설정
+│       │           ├── security/   # 보안 및 JWT
+│       │           ├── common/     # 공통 응답
+│       │           └── exception/  # 예외 처리
+│       └── resources/
+│           ├── application.yml
+│           ├── application-dev.yml
+│           └── application-prod.yml
+├── Dockerfile
+├── build.gradle
+└── README.md
+```
+
+
+## 📑 API 명세서
+
+**Swagger UI**를 통해 API 요청·응답 구조와 인증 방식을 확인하고 테스트할 수 있습니다.
+
+> [**API 명세서→**](https://modi.kang0131.shop/swagger-ui/index.html#/)
+
+
 
 ## 👥 팀원
 
