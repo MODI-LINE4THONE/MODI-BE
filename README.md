@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./images/modi_main.jpeg" width="100%" alt="MODI 서비스 메인 이미지" />
+  <img src="./modi_main.jpeg" width="100%" alt="MODI 서비스 메인 이미지" />
 </p>
 
 # 🔵 MODI
