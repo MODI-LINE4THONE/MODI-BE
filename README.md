@@ -119,7 +119,7 @@ MODI-BE/
 
 **Swagger UI**를 통해 API 요청·응답 구조와 인증 방식을 확인하고 테스트할 수 있습니다.
 
-> [**API 명세서→**](https://modi.kang0131.shop/swagger-ui/index.html#/)
+> [**API 명세서**](https://modi.kang0131.shop/swagger-ui/index.html#/)
 
 
 
