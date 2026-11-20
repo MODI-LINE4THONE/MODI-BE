@@ -9,7 +9,7 @@
 ## 🚀 Deployment
 
 > 🌐 **MODI 서비스를 직접 만나보세요!**  
-> [**MODI 바로가기**](https://modi-web-roan.vercel.app/onboarding/login)
+> [**MODI 바로가기**](https://modi-web-roan.vercel.app/)
 
 ## 💡 서비스 소개
 
